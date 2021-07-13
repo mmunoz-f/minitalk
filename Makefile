@@ -6,14 +6,14 @@
 #    By: miguel <miguel@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/12 15:40:15 by mmunoz-f          #+#    #+#              #
-#    Updated: 2021/07/13 03:14:15 by miguel           ###   ########.fr        #
+#    Updated: 2021/07/13 04:58:57 by miguel           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TIME =   $(shell date +'%d/%m/%Y %H:%M:%S')
 M =
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 
 SOURCE = minitalk_utils.c
 SOURCE_OBJS = $(SOURCE:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 01:57:23 by miguel            #+#    #+#             */
-/*   Updated: 2021/07/13 04:43:28 by miguel           ###   ########.fr       */
+/*   Updated: 2021/07/13 04:56:25 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_client(int signum)
 	static int	i = 0;
 
 	if (signum == SIGUSR1)
-		c |= (0b10000000 >> i);
+		c |= (128 >> i);
 	i++;
 	if (i == 8)
 	{
@@ -39,11 +39,9 @@ int	main(void)
 	write(STDOUT_FILENO, "PID: ", ft_strlen("PID: "));
 	ft_putnbr_fd(pid, STDOUT_FILENO);
 	write(1, "\n", 1);
+	signal(SIGUSR1, print_client);
+	signal(SIGUSR2, print_client);
 	while(1)
-	{
-		signal(SIGUSR1, print_client);
-		signal(SIGUSR2, print_client);
 		pause();
-	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:40:10 by mmunoz-f          #+#    #+#             */
-/*   Updated: 2021/07/13 04:10:17 by miguel           ###   ########.fr       */
+/*   Updated: 2021/07/13 04:50:06 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	pass_string_to_signals(pid_t pid, const char *string)
 	size_t			i;
 	unsigned int	j;
 
-	(void)pid;
 	i = 0;
 	while (string[i])
 	{
