@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: miguel <miguel@student.42.fr>              +#+  +:+       +#+         #
+#    By: mmunoz-f <mmunoz-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/12 15:40:15 by mmunoz-f          #+#    #+#              #
-#    Updated: 2021/07/13 04:58:57 by miguel           ###   ########.fr        #
+#    Updated: 2021/07/13 06:17:09 by mmunoz-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TIME =   $(shell date +'%d/%m/%Y %H:%M:%S')
 M =
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror
 
 SOURCE = minitalk_utils.c
 SOURCE_OBJS = $(SOURCE:.c=.o)
