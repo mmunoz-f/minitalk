@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmunoz-f <mmunoz-f@student.42.fr>          +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:28:37 by mmunoz-f          #+#    #+#             */
-/*   Updated: 2021/07/12 16:55:08 by mmunoz-f         ###   ########.fr       */
+/*   Updated: 2021/07/13 02:13:46 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+
+int	ft_atoi(const char *nptr)
+{
+	unsigned int	i;
+	unsigned int	nbr;
+	int				n;
+
+	i = 0;
+	nbr = 0;
+	n = 0;
+	while (nptr[i] && (nptr[i] == ' ' || (nptr[i] < 14 && nptr[i] > 8)))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			n = 1;
+		i++;
+	}
+	while (nptr[i] < 58 && nptr[i] > 47)
+	{
+		nbr = nbr * 10 + (nptr[i] - 48);
+		i++;
+	}
+	if (n == 0)
+		return ((int)nbr);
+	return (-(int)nbr);
+}
 
 size_t	ft_strlen(const char *string)
 {
@@ -20,6 +48,25 @@ size_t	ft_strlen(const char *string)
 	while (string[i])
 		i++;
 	return (i);
+}
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	unsigned int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
 
 void	ft_putnbr_fd(int n, int fd)
