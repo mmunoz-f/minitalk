@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmunoz-f <mmunoz-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:28:37 by mmunoz-f          #+#    #+#             */
-/*   Updated: 2021/07/13 02:13:46 by miguel           ###   ########.fr       */
+/*   Updated: 2021/07/13 06:08:10 by mmunoz-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
 
 int	ft_atoi(const char *nptr)
 {

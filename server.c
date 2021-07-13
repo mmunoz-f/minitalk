@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmunoz-f <mmunoz-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 01:57:23 by miguel            #+#    #+#             */
-/*   Updated: 2021/07/13 04:56:25 by miguel           ###   ########.fr       */
+/*   Updated: 2021/07/13 06:09:01 by mmunoz-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_client(int signum)
 
 int	main(void)
 {
-	pid_t pid;
+	pid_t	pid;
 
 	pid = getpid();
 	write(STDOUT_FILENO, "PID: ", ft_strlen("PID: "));
@@ -41,7 +41,7 @@ int	main(void)
 	write(1, "\n", 1);
 	signal(SIGUSR1, print_client);
 	signal(SIGUSR2, print_client);
-	while(1)
+	while (1)
 		pause();
 	return (0);
 }

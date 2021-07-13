@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmunoz-f <mmunoz-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:40:10 by mmunoz-f          #+#    #+#             */
-/*   Updated: 2021/07/13 04:50:06 by miguel           ###   ########.fr       */
+/*   Updated: 2021/07/13 06:11:42 by mmunoz-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "minitalk.h"
+#include "minitalk.h"
 
 void	pass_string_to_signals(pid_t pid, const char *string)
 {
@@ -28,7 +28,7 @@ void	pass_string_to_signals(pid_t pid, const char *string)
 			else
 				kill(pid, SIGUSR2);
 			j++;
-			usleep(100);
+			usleep(50);
 		}
 		i++;
 	}
@@ -36,7 +36,7 @@ void	pass_string_to_signals(pid_t pid, const char *string)
 	while (i--)
 	{
 		kill(pid, SIGUSR2);
-		usleep(100);
+		usleep(50);
 	}
 }
 
