@@ -6,7 +6,7 @@
 #    By: mmunoz-f <mmunoz-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/12 15:40:15 by mmunoz-f          #+#    #+#              #
-#    Updated: 2021/07/13 06:17:09 by mmunoz-f         ###   ########.fr        #
+#    Updated: 2021/07/14 19:12:17 by mmunoz-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ M =
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCE = minitalk_utils.c
+SOURCE = minitalk_utils.c print_utils.c
 SOURCE_OBJS = $(SOURCE:.c=.o)
 
 SERVER = server
@@ -33,6 +33,8 @@ $(SERVER): $(SOURCE_OBJS) $(SERVER_OBJS)
 
 $(CLIENT): $(SOURCE_OBJS) $(CLIENT_OBJS)
 	$(CC) $(CFLAGS) -o $@ $(SOURCE) $(CLIENT_OBJS)
+
+bonus: all
 
 clean:
 	rm -f $(SOURCE_OBJS) $(CLIENT_OBJS) $(SERVER_OBJS)

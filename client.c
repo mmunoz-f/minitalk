@@ -6,7 +6,7 @@
 /*   By: mmunoz-f <mmunoz-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:40:10 by mmunoz-f          #+#    #+#             */
-/*   Updated: 2021/07/13 06:11:42 by mmunoz-f         ###   ########.fr       */
+/*   Updated: 2021/07/14 19:32:14 by mmunoz-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,18 @@ void	pass_string_to_signals(pid_t pid, const char *string)
 	}
 }
 
+void	exit_minitalk(int signum)
+{
+	(void)signum;
+	ft_putstr_fd("Server finished printing my string.\n", STDOUT_FILENO);
+	exit(0);
+}
+
 int	main(int argc, char **argv)
 {
 	pid_t	pid;
 
+	signal(SIGUSR1, exit_minitalk);
 	if (argc != 3)
 	{
 		ft_putstr_fd("Wrong number of arguments\n", STDOUT_FILENO);
@@ -51,5 +59,6 @@ int	main(int argc, char **argv)
 	}
 	pid = ft_atoi(argv[1]);
 	pass_string_to_signals(pid, argv[2]);
+	pause();
 	return (0);
 }

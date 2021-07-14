@@ -6,11 +6,52 @@
 /*   By: mmunoz-f <mmunoz-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:28:37 by mmunoz-f          #+#    #+#             */
-/*   Updated: 2021/07/13 06:08:10 by mmunoz-f         ###   ########.fr       */
+/*   Updated: 2021/07/14 18:58:04 by mmunoz-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+static unsigned int	ft_nlength(int n)
+{
+	int	i;
+
+	i = 1;
+	while (n / 10)
+	{
+		i++;
+		n /= 10;
+	}
+	if (n < 0)
+		i++;
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	unsigned int	nbr;
+	unsigned int	size;
+	char			*a;
+
+	size = ft_nlength(n);
+	a = (char *)malloc(size + 1);
+	if (!a)
+		return (0);
+	if (n < 0)
+	{
+		a[0] = '-';
+		nbr = -(unsigned int)n;
+	}
+	else
+		nbr = (unsigned int)n;
+	a[size] = 0;
+	while (nbr || !(n--))
+	{
+		a[--size] = nbr % 10 + 48;
+		nbr /= 10;
+	}
+	return (a);
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -37,54 +78,4 @@ int	ft_atoi(const char *nptr)
 	if (n == 0)
 		return ((int)nbr);
 	return (-(int)nbr);
-}
-
-size_t	ft_strlen(const char *string)
-{
-	size_t	i;
-
-	i = 0;
-	while (string[i])
-		i++;
-	return (i);
-}
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	unsigned int	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n = -n;
-	}
-	if (n < 10)
-		ft_putchar_fd(n + 48, fd);
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
 }
