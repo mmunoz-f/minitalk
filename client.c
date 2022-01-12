@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 	signal(SIGUSR1, exit_minitalk);
 	if (argc != 3)
 	{
-		ft_putstr_fd("Wrong number of arguments\n", STDOUT_FILENO);
+		ft_putstr_fd("Wrong number of arguments\n", STDERR_FILENO);
 		return (1);
 	}
 	pid = ft_atoi(argv[1]);
