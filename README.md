@@ -19,6 +19,8 @@ Then, in a separated tab, launch the client executable:
 
 ```bash
 ./client server_id message
+```
+```bash
 ./client 10927 "Hello World!"
 ```
 The client will send the second parameter string to the server and this will display it.
