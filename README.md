@@ -4,7 +4,7 @@ This is a simple project of how Unix signals can be used. A client process will 
 
 <h3>How it works</h3>
 
-The clients will use SIGUSR1 and SIGUSR2 signals to communicate with the server as these signals where 0 and 1 values, so the server will receive the data bit by bit.
+The client will use SIGUSR1 and SIGUSR2 signals to communicate with the servers reinterpreting them as 0s and 1s, so the server will receive the data bit by bit.
 
 <h3>How to use</h3>
 
